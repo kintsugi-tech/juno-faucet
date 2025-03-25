@@ -18,13 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import Link from "next/link";
-import {
-  ExternalLinkIcon,
-  Link2,
-  Link2Icon,
-  LinkIcon,
-  Loader2,
-} from "lucide-react";
+import { ExternalLinkIcon, Loader2 } from "lucide-react";
 
 const FormSchema = z.object({
   address: z.string().min(34, {
@@ -56,11 +50,11 @@ export function FaucetForm() {
     setLoading(false);
 
     if (res.ok) {
-      let body = await res.json();
+      const body = await res.json();
       setTxHash(body.hash);
       toast.success("Tokens successuflly sent! 🎉");
     } else {
-      let body = await res.json();
+      const body = await res.json();
       toast.error(body.message ?? "Failed to send tokens");
     }
 

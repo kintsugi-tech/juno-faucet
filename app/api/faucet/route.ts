@@ -101,4 +101,5 @@ export const POST = auth(async function POST(req) {
       { status: 500 }
     );
   }
-});
+}) as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+// https://github.com/nextauthjs/next-auth/issues/12224
